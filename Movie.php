@@ -1,11 +1,13 @@
 <?php
 
-class Movies
+class Movie
 {
     public $name;
     public $genre;
     public $year;
     public $country;
+    public $author;
+
 
     public function __construct($name, $genre, $year, $country)
     {
@@ -54,12 +56,25 @@ class Movies
     {
         $this->country = $country;
     }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
 }
 
-$movie = new Movies('Star Wars', 'Fantasy', 2022, 'USA');
+$movie = new Movie('Star Wars', 'Fantasy', 2022, 'USA');
+$movie->setAuthor('Paperino');
 // var_dump($movie);
 
-$movieSecond = new Movies('Pippo', 'Fantasy', 1980, 'USA');
+$movieSecond = new Movie('Pippo', 'Fantasy', 1980, 'USA');
+$movieSecond->setAuthor('Paperina');
+
 // var_dump($movieSecond);
 ?>
 
@@ -82,13 +97,16 @@ $movieSecond = new Movies('Pippo', 'Fantasy', 1980, 'USA');
             <li>Genere: <?= $movie->getGenre() ?></li>
             <li>Anno: <?= $movie->getYear() ?></li>
             <li>Regista: <?= $movie->getCountry() ?></li>
+            <li>Autore: <?= $movie->getAuthor() ?></li>
         </ul>
         <ul>
-            <li><h1>Titolo: <?= $movieSecond->getName() ?></h1>
+            <li>
+                <h1>Titolo: <?= $movieSecond->getName() ?></h1>
             </li>
             <li>Genere: <?= $movieSecond->getGenre() ?></li>
             <li>Anno: <?= $movieSecond->getYear() ?></li>
             <li>Regista: <?= $movieSecond->getCountry() ?></li>
+            <li>Autore: <?= $movieSecond->getAuthor() ?></li>
         </ul>
     </main>
 </body>
